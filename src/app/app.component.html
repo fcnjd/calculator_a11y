@@ -4,5 +4,5 @@
   <input type="text" id="rechnung" name="rechnung" [(ngModel)]="rechnung">
   <button type="submit">Berechnen</button>
   <label for="ergebnis">Ergebnis</label>
-  <input type="text" id="ergebnis" name="ergebnis" [(ngModel)]="ergebnis" readonly>
+  <input type="text" id="ergebnis" name="ergebnis" [(ngModel)]="ergebnis" readonly #resultInput>
 </form>

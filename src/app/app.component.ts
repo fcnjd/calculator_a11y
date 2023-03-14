@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { evaluate } from 'mathjs';
+import { FocusMonitor } from '@angular/cdk/a11y';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +9,26 @@ import { evaluate } from 'mathjs';
 })
 export class AppComponent {
   title = 'calculator_a11y';
-  rechnung='';
-  ergebnis='Hier kommt das Ergebnis rein';
+  constructor(private focusMonitor: FocusMonitor) {
+  }
+  rechnung = '';
+  ergebnis = 'Hier kommt das Ergebnis rein';
+  @ViewChild(ElementRef, { static: false })
+  resultInputRef: ElementRef;
+  /*@ViewChild('resultInput', { static: false }) set content(content: ElementRef) {
+    this.resultInput = content;
+  }*/
   berechnen() {
-    this.ergebnis=evaluate(this.rechnung);
+    console.log('berechnen');
+    this.ergebnis = evaluate(this.rechnung);
+    //this.focusMonitor.focusVia(this.resultInputRef, 'program');
+    //this.resultInputRef.nativeElement.focus();
+    //setTimeout(() => this.resultInputRef.nativeElement.focus(), 0);
+    //document.getElementById('resultInput').focus();
+    var element = document.getElementById('ergebnis');
+    if (element != null) {
+      console.log('focus');
+      element.focus();
+    }
   }
 }
