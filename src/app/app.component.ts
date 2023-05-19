@@ -11,13 +11,13 @@ export class AppComponent {
   rechnung = '';
   ergebnis = 'Hier kommt das Ergebnis rein';
   @ViewChild('resultInput')
-  ergebnisElement: ElementRef;
+  resultElement: ElementRef;
   berechnen() {
     console.log('berechnen');
     this.ergebnis = evaluate(this.rechnung);
-    if (this.ergebnisElement != null) {
+    if (this.resultElement != null) {
       console.log('focus');
-      this.ergebnisElement.nativeElement.focus();
+      this.resultElement.nativeElement.focus();
     }
   }
 }
