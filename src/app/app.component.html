@@ -1,21 +1,26 @@
 <h1>Taschenrechner</h1>
-<form (ngSubmit)="berechnen()">
-	<label for="rechnung">Rechnung</label>
+<form (ngSubmit)="calculate()">
+	<label for="calculation">Rechnung</label>
 	<input
 		type="text"
-		id="rechnung"
+		id="calculation"
 		name="rechnung"
-		[(ngModel)]="rechnung"
+		[(ngModel)]="calculation"
 		#calculationInput
 	/>
 	<button type="submit">Berechnen</button>
-	<label for="ergebnis">Ergebnis</label>
+	<label for="result">Ergebnis</label>
 	<input
 		type="text"
-		id="ergebnis"
+		id="result"
 		name="ergebnis"
-		[(ngModel)]="ergebnis"
+		[(ngModel)]="result"
 		readonly
 		#resultInput
 	/>
 </form>
+<app-commands-reference
+	(commandSelected)="handleCommand($event)"
+	(close)="closeCommandsReference()"
+	[commandsReferenceIsOpen]="commandsReferenceIsOpen"
+></app-commands-reference>

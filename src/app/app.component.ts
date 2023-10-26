@@ -18,18 +18,18 @@ export class AppComponent implements AfterViewInit {
 			this.calculationElement.nativeElement.focus();
 		}
 	}
+	// At first, the commands reference is closed, until the user opens it by pressing alt + x
+	commandsReferenceIsOpen = false;
 	title = 'calculator_a11y';
-	rechnung = '';
-	ergebnis = 'Bitte zuerst Rechnung eingeben und mit Enter bestätigen';
+	calculation = '';
+	result = 'Bitte zuerst Rechnung eingeben und mit Enter bestätigen';
 	@ViewChild('resultInput')
 	resultElement: ElementRef;
 	@ViewChild('calculationInput')
 	calculationElement: ElementRef;
-	berechnen() {
-		console.log('berechnen');
-		this.ergebnis = evaluate(this.rechnung);
+	calculate() {
+		this.result = evaluate(this.calculation);
 		if (this.resultElement != null) {
-			console.log('focus');
 			this.resultElement.nativeElement.focus();
 		}
 	}
@@ -51,9 +51,30 @@ export class AppComponent implements AfterViewInit {
 			this.resultElement.nativeElement.focus();
 		}
 	}
+
 	// Opens the commands-reference component as a modal by pressing alt + x
 	@HostListener('document:keydown.alt.x', ['$event'])
 	focusCommandsReference(event: KeyboardEvent) {
 		event.preventDefault();
+		this.commandsReferenceIsOpen = true;
+	}
+
+	// Method to close commands reference again
+	closeCommandsReference(): void {
+		this.commandsReferenceIsOpen = false;
+	}
+
+	// Selected command is passed from commands reference back to app component, and needs to be inserted at the current cursor position
+	handleCommand(command: string): void {
+		if (this.calculationElement != null) {
+			const cursorPosition = this.calculationElement.nativeElement
+				.selectionStart;
+			this.calculation =
+				this.calculation.slice(0, cursorPosition) +
+				command +
+				this.calculation.slice(cursorPosition);
+			this.calculationElement.nativeElement.focus();
+		}
+		this.commandsReferenceIsOpen = false;
 	}
 }

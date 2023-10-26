@@ -1,4 +1,4 @@
-<div class="modal" [class.show]="isModalOpen" role="dialog">
+<div class="modal" [class.show]="commandsReferenceIsOpen" role="dialog">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -7,20 +7,26 @@
 					type="button"
 					class="close"
 					aria-label="Close"
-					(click)="closeModal()"
+					(click)="closeCommandsReference()"
 				>
 					<span>&times;</span>
 				</button>
 			</div>
 			<div class="modal-body">
-				<select [(ngModel)]="selectedCommand">
-					<option *ngFor="let command of commands" [value]="command">
-						{{ command }}
-					</option>
-				</select>
+				<form (submit)="onCommandSelected(selectedCommand); $event.preventDefault()">
+					<select [(ngModel)]="selectedCommand">
+						<option *ngFor="let command of commands" [value]="command">
+							{{ command }}
+						</option>
+					</select>
+				</form>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" (click)="closeModal()">
+				<button
+					type="button"
+					class="btn btn-secondary"
+					(click)="closeCommandsReference()"
+				>
 					Schließen
 				</button>
 			</div>
