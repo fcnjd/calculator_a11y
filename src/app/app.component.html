@@ -1,7 +1,7 @@
 <h1>Taschenrechner</h1>
 <form (ngSubmit)="berechnen()">
   <label for="rechnung">Rechnung</label>
-  <input type="text" id="rechnung" name="rechnung" [(ngModel)]="rechnung">
+  <input type="text" id="rechnung" name="rechnung" [(ngModel)]="rechnung" #calculationInput>
   <button type="submit">Berechnen</button>
   <label for="ergebnis">Ergebnis</label>
   <input type="text" id="ergebnis" name="ergebnis" [(ngModel)]="ergebnis" readonly #resultInput>
