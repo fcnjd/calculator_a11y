@@ -4,10 +4,12 @@ import { FormsModule } from '@angular/forms'
 import { A11yModule } from '@angular/cdk/a11y';
 
 import { AppComponent } from './app.component';
+import { CommandsReferenceComponent } from './commands-reference/commands-reference.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CommandsReferenceComponent
   ],
   imports: [
     BrowserModule,
