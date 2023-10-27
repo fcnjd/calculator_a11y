@@ -5,11 +5,13 @@ import { A11yModule } from '@angular/cdk/a11y';
 
 import { AppComponent } from './app.component';
 import { CommandsReferenceComponent } from './commands-reference/commands-reference.component';
+import { CalculatorComponent } from './calculator/calculator.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CommandsReferenceComponent
+    CommandsReferenceComponent,
+    CalculatorComponent
   ],
   imports: [
     BrowserModule,

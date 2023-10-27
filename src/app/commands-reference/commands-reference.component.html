@@ -15,8 +15,8 @@
 			<div class="modal-body">
 				<form (submit)="onCommandSelected(selectedCommand); $event.preventDefault()">
 					<select [(ngModel)]="selectedCommand">
-						<option *ngFor="let command of commands" [value]="command">
-							{{ command }}
+						<option *ngFor="let command of commands.keys()" [value]="command">
+							{{ command }} - {{ commands.get(command) }}
 						</option>
 					</select>
 				</form>
