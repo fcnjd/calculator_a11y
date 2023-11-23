@@ -1,6 +1,7 @@
 {
   "name": "calculator-a11y",
   "version": "0.0.0",
+  "main": "main.ts",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
