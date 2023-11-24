@@ -9,7 +9,7 @@
     "build-prod": "ng build --configuration=production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "electron": "electron .",
+    "electron": "ng build && electron ./dist/calculator_a11y/main.js",
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
     "postinstall": "electron-builder install-app-deps"
