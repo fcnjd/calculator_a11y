@@ -1,12 +1,15 @@
 import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-	selector: 'app-commands-reference',
-	templateUrl: './commands-reference.component.html',
-	styleUrls: ['./commands-reference.component.scss'],
+	selector: 'app-command-index',
+	standalone: true,
+	templateUrl: './command-index.component.html',
+	styleUrls: ['./command-index.component.scss'],
+	imports: [FormsModule],
 })
-export class CommandsReferenceComponent {
-	@Input() commandsReferenceIsOpen: boolean;
+export class CommandIndexComponent {
+	@Input() commandIndexIsOpen: boolean = false;
 	@Output() close = new EventEmitter<void>();
 	@Output() commandSelected = new EventEmitter<string>();
 	// The commands are stored in a map, where the key is the description and the value is the command
@@ -29,19 +32,19 @@ export class CommandsReferenceComponent {
 		['Exponentialfunktion', 'exp()'],
 	]);
 	//commands:string[] = ['Addition', 'Subtraktion', 'Multiplikation', 'Division', 'Potenzieren', 'Wurzelziehen', 'Klammern', 'Kommazahlen', 'Vorzeichen', 'Prozentrechnung', 'Fakultät', 'Logarithmus', 'Sinus', 'Cosinus', 'Tangens', 'Exponentialfunktion', 'Pi', 'Eulersche Zahl', 'Konstanten', 'Variablen', 'Funktionen', 'Speicherfunktionen', 'Verlaufsfunktionen', 'Verlauf löschen', 'Verlauf speichern', 'Verlauf anzeigen', 'Verlauf ausblenden', 'Verlauf löschen', 'Verlauf speichern', 'Verlauf anzeigen', 'Verlauf ausblenden', 'Verlauf löschen', 'Verlauf speichern', 'Verlauf anzeigen', 'Verlauf ausblenden', 'Verlauf löschen', 'Verlauf speichern', 'Verlauf anzeigen', 'Verlauf ausblenden', 'Verlauf löschen', 'Verlauf speichern', 'Verlauf anzeigen', 'Verlauf ausblenden', 'Verlauf löschen', 'Verlauf speichern', 'Verlauf anzeigen', 'Verlauf ausblenden', 'Verlauf löschen', 'Verlauf speichern', 'Verlauf anzeigen', 'Verlauf ausblenden', 'Verlauf löschen', 'Verlauf speichern', 'Verlauf anzeigen', 'Verlauf ausblenden'];
-	selectedCommand: string;
+	selectedCommand = '';
 	onCommandSelected(command: string) {
 		this.selectedCommand = command;
 		this.commandSelected.emit(this.commands.get(command));
 	}
 	// Modal can be closed by pressing escape
 	@HostListener('document:keydown.escape', ['$event'])
-	closeCommandsReferenceModal(event: KeyboardEvent) {
+	closeCommandIndexModal(event: KeyboardEvent) {
 		event.preventDefault();
-		this.closeCommandsReference();
+		this.closeCommandIndex();
 	}
-	closeCommandsReference(): void {
-		this.commandsReferenceIsOpen = false;
+	closeCommandIndex(): void {
+		this.commandIndexIsOpen = false;
 		this.close.emit();
 	}
 }

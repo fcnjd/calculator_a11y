@@ -1,10 +1,13 @@
 import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { evaluate } from 'mathjs';
 
 @Component({
 	selector: 'app-calculator',
+	standalone: true,
 	templateUrl: './calculator.component.html',
 	styleUrls: ['./calculator.component.scss'],
+	imports: [FormsModule],
 })
 export class CalculatorComponent implements AfterViewInit {
 	// When initialized, focus the calculation input field
@@ -17,9 +20,9 @@ export class CalculatorComponent implements AfterViewInit {
 	calculation = '';
 	result = 'Bitte zuerst Rechnung eingeben und mit Enter bestätigen';
 	@ViewChild('resultInput')
-	resultElement: ElementRef;
+	resultElement!: ElementRef;
 	@ViewChild('calculationInput')
-	calculationElement: ElementRef;
+	calculationElement!: ElementRef;
 	calculate() {
 		this.result = evaluate(this.calculation);
 		if (this.resultElement != null) {
@@ -45,7 +48,7 @@ export class CalculatorComponent implements AfterViewInit {
 		}
 	}
 
-	// Selected command is passed from commands reference back to app component, and needs to be inserted at the current cursor position
+	// Selected command is passed from command index back to app component, and needs to be inserted at the current cursor position
 	handleCommand(command: string): void {
 		if (this.calculationElement != null) {
 			const cursorPosition =

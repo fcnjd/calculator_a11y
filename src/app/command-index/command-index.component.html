@@ -1,13 +1,13 @@
-<div class="modal" [class.show]="commandsReferenceIsOpen" role="dialog">
+<div class="modal" [class.show]="commandIndexIsOpen" role="dialog">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title">Befehlsreferenz</h5>
+				<h5 class="modal-title">Befehlsindex</h5>
 				<button
 					type="button"
 					class="close"
 					aria-label="Close"
-					(click)="closeCommandsReference()"
+					(click)="closeCommandIndex()"
 				>
 					<span>&times;</span>
 				</button>
@@ -25,7 +25,7 @@
 				<button
 					type="button"
 					class="btn btn-secondary"
-					(click)="closeCommandsReference()"
+					(click)="closeCommandIndex()"
 				>
 					Schließen
 				</button>

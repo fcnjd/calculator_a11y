@@ -1,7 +1,3 @@
 <app-calculator *ngIf="calculatorIsOpen"></app-calculator>
-<app-commands-reference
-	(commandSelected)="handleCommand($event)"
-	(close)="closeCommandsReference()"
-	[commandsReferenceIsOpen]="commandsReferenceIsOpen"
-	*ngIf="commandsReferenceIsOpen"
-></app-commands-reference>
+<app-command-index (commandSelected)="handleCommand($event)" (close)="closeCommandIndex()"
+	[commandIndexIsOpen]="commandIndexIsOpen" *ngIf="commandIndexIsOpen"></app-command-index>
