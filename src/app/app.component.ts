@@ -16,7 +16,7 @@ import { CommandIndexComponent } from './command-index/command-index.component';
 	styleUrl: './app.component.scss'
 })
 export class AppComponent {
-	title = 'calculator_a11y';
+	title = 'powercalc';
 	calculatorIsOpen = true;
 	commandIndexIsOpen = false;
 	// Opens the command index component as a modal by pressing alt + x

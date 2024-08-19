@@ -12,7 +12,7 @@ function createWindow() {
 	});
 
 	// and load the index.html of the app.
-	win.loadFile('dist/calculator_a11y/browser/index.html');
+	win.loadFile('dist/powercalc/browser/index.html');
 }
 
 app.whenReady().then(createWindow);

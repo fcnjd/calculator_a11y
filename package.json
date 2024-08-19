@@ -1,5 +1,5 @@
 {
-	"name": "calculator-a11y",
+	"name": "powercalc",
 	"version": "0.0.0",
 	"main": "main.js",
 	"scripts": {
@@ -10,7 +10,6 @@
 		"test": "ng test",
 		"lint": "ng lint",
 		"e2e": "ng e2e",
-		"serve:ssr:calculator_a11y": "node dist/calculator_a11y/server/server.mjs",
 		"electron": "ng build --configuration=production && electron .",
 		"pack": "ng build --configuration=production && electron-packager . --out=dist --overwrite --platform=win32"
 	},

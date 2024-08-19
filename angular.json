@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "calculator_a11y": {
+    "powercalc": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/calculator_a11y",
+            "outputPath": "dist/powercalc",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "calculator_a11y:build:production"
+              "buildTarget": "powercalc:build:production"
             },
             "development": {
-              "buildTarget": "calculator_a11y:build:development"
+              "buildTarget": "powercalc:build:development"
             }
           },
           "defaultConfiguration": "development"

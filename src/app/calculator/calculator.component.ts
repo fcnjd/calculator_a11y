@@ -16,7 +16,7 @@ export class CalculatorComponent implements AfterViewInit {
 			this.calculationElement.nativeElement.focus();
 		}
 	}
-	title = 'calculator_a11y';
+	title = 'powercalc';
 	calculation = '';
 	result = 'Bitte zuerst Rechnung eingeben und mit Enter bestätigen';
 	@ViewChild('resultInput')
