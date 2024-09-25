@@ -1,21 +1,13 @@
 <h1>Taschenrechner</h1>
 <form (ngSubmit)="calculate()">
 	<label for="calculation">Rechnung</label>
-	<input
-		type="text"
-		id="calculation"
-		name="rechnung"
-		[(ngModel)]="calculation"
-		#calculationInput
-	/>
+	<input type="text" id="calculation" name="rechnung" [(ngModel)]="calculation" #calculationInput />
 	<button type="submit">Berechnen</button>
 	<label for="result">Ergebnis</label>
-	<input
-		type="text"
-		id="result"
-		name="ergebnis"
-		[(ngModel)]="result"
-		readonly
-		#resultInput
-	/>
+	<input type="text" id="result" name="ergebnis" [(ngModel)]="result" readonly #resultInput />
+	<!--button (click)="clear()">Löschen</button>
+	<button (click)="showPlot()">Plot</button-->
 </form>
+<!--div *ngIf="showPlotComponent">
+	<app-plot></app-plot>
+</div-->

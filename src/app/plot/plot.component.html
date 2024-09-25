@@ -1,0 +1,8 @@
+<h1>Plot</h1>
+<p>Plotte eine Funktion und lade das Ergebnis als PNG herunter.</p>
+<form (submit)="plotFunction()">
+	<input type="text" [(ngModel)]="functionInput" placeholder="Gib eine Funktion ein, z.B. Math.sin(x)" />
+	<button type="submit">Plot</button>
+	<button type="button" (click)="downloadImage()">PNG herunterladen</button>
+	<div *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</div>
+	<plotly-plot #plot id="myPlotDiv" [data]="graph.data" [layout]="graph.layout"></plotly-plot>

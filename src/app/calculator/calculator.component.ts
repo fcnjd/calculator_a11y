@@ -1,15 +1,20 @@
+import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { evaluate } from 'mathjs';
+import { PlotComponent } from '../plot/plot.component';
 
 @Component({
 	selector: 'app-calculator',
 	standalone: true,
 	templateUrl: './calculator.component.html',
 	styleUrls: ['./calculator.component.scss'],
-	imports: [FormsModule],
+	imports: [FormsModule, CommonModule, PlotComponent],
 })
 export class CalculatorComponent implements AfterViewInit {
+
+	public showPlotComponent = false;
+
 	// When initialized, focus the calculation input field
 	ngAfterViewInit() {
 		if (this.calculationElement != null) {
@@ -60,4 +65,24 @@ export class CalculatorComponent implements AfterViewInit {
 			this.calculationElement.nativeElement.focus();
 		}
 	}
+
+	/*clear() {
+		this.calculation = '';
+		this.result = 'Bitte zuerst Rechnung eingeben und mit Enter bestätigen';
+		if (this.calculationElement != null) {
+			this.calculationElement.nativeElement.focus();
+		}
+	}
+
+	showPlot() {
+		this.showPlotComponent = true;
+	}
+
+	@HostListener('window:keydown', ['$event'])
+	handleKeyDown(event: KeyboardEvent) {
+		if (event.ctrlKey && event.key === 'p') {
+			//event.preventDefault(); // Verhindert das Standard-Druck-Dialogfenster
+			this.showPlot();
+		}
+	}*/
 }
