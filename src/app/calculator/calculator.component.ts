@@ -29,7 +29,11 @@ export class CalculatorComponent implements AfterViewInit {
 	@ViewChild('calculationInput')
 	calculationElement!: ElementRef;
 	calculate() {
-		this.result = evaluate(this.calculation);
+		try {
+			this.result = evaluate(this.calculation);
+		} catch (error) {
+			this.result = 'Fehler: ' + error;
+		}
 		if (this.resultElement != null) {
 			this.resultElement.nativeElement.focus();
 		}
@@ -66,9 +70,8 @@ export class CalculatorComponent implements AfterViewInit {
 		}
 	}
 
-	/*clear() {
+	clear() {
 		this.calculation = '';
-		this.result = 'Bitte zuerst Rechnung eingeben und mit Enter bestätigen';
 		if (this.calculationElement != null) {
 			this.calculationElement.nativeElement.focus();
 		}
@@ -84,5 +87,5 @@ export class CalculatorComponent implements AfterViewInit {
 			//event.preventDefault(); // Verhindert das Standard-Druck-Dialogfenster
 			this.showPlot();
 		}
-	}*/
+	}
 }

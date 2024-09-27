@@ -6,3 +6,5 @@
 	<button type="button" (click)="downloadImage()">PNG herunterladen</button>
 	<div *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</div>
 	<plotly-plot #plot id="myPlotDiv" [data]="graph.data" [layout]="graph.layout"></plotly-plot>
+
+</form>
